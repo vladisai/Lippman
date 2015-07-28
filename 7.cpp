@@ -19,7 +19,15 @@ class Sales_data;
 class Constructors
 {
 	public:
-		Constructors(int a) : b(a)
+		static int k;//can access this member as Constructors::k
+		const static int kc;
+		//cannot initialize k with in-class initializer
+		static Constructors cs; //can use incomplete type, even the very type of the class it is in
+		static int getK()//static class methods don't have this pointer argument
+		{
+			return k;
+		}
+		Constructors(int a = k) : b(a) //can use static variable as a default variable 
 		{
 			//now, anywhere where Constructors type is required, int will be accepted	
 		}
@@ -34,6 +42,8 @@ class Constructors
 		}
 		int b;
 };
+int Constructors::k = 1;//this is how k is defined
+const int Constructors::kc = 3; //not necessary to provide an initializer, if there is a initializer of kc in the class
 
 bool is(Constructors c)
 {

@@ -10,13 +10,19 @@ using namespace std;
 
 const int N = 1111;
 
-struct A
+void a(int &&k)
 {
-};
+	cout << k;
+}
+
+template<typename F, typename T>
+void foo(F f, T &&a)
+{
+	f(a);
+}
 
 int main()
 {
-	A a;
-	cout << a.ind;
+	foo(a, 4);
 	return 0;
 }

@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "customVector.cpp"
 
 #define F first
 #define S second
@@ -8,21 +9,13 @@
 
 using namespace std;
 
-const int N = 1111;
-
-void a(int &&k)
-{
-	cout << k;
-}
-
-template<typename F, typename T>
-void foo(F f, T &&a)
-{
-	f(a);
-}
-
 int main()
 {
-	foo(a, 4);
+	int t = clock();
+
+	Vector<int> v{1, 2, 3, 4};
+
+	int tf = clock() - t;
+	cout << static_cast<double>(tf) / CLOCKS_PER_SEC;
 	return 0;
 }
